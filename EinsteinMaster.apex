@@ -4,6 +4,7 @@ public class EinsteinMaster{
     public static string API = 'https://api.einstein.ai/v2';
     
     
+    
     /**********WE DONT NEED TO TOUCH ANY CODE BELOW THIS*********/
     public static String LANGUAGE_API = API + '/language';
     public static String SENTIMENT = LANGUAGE_API + '/sentiment';
@@ -234,19 +235,20 @@ public class EinsteinMaster{
     //HttpFormBuilder End Here
     
     //Vision Part Start Here
-    public static List<Prediction> predictUrl(String url, String access_token, String model) {
-        return predictInternal(url, access_token, model, false);
+    public static List<Prediction> predictUrl(String url, String model) {
+        return predictInternal(url, model, false);
     }
 
-    public static List<Prediction> predictBase64(String base64String, String access_token, String model) {
-        return predictInternal(base64String, access_token, model, true);
+    public static List<Prediction> predictBase64(String base64String,  String model) {
+        return predictInternal(base64String,  model, true);
     }
 
-    public static List<Prediction> predictBlob(blob fileBlob, String access_token, String model) {
-        return predictInternal(EncodingUtil.base64Encode(fileBlob), access_token, model, true);
+    public static List<Prediction> predictBlob(blob fileBlob, String model) {
+        return predictInternal(EncodingUtil.base64Encode(fileBlob),  model, true);
     }
 
-    private static List<Prediction> predictInternal(String sample, String access_token, String model, boolean isBase64) {
+    private static List<Prediction> predictInternal(String sample, String model, boolean isBase64) {
+        String access_token = getAccessToken();
         string contentType = GetContentType();
         //  Compose the form
         string form64 = '';
@@ -307,17 +309,18 @@ public class EinsteinMaster{
     //Vision Part End Here
     
     //LANGUAGE Part Start Here
-    public static List<Prediction> sentiment(String document, String access_token, String model) {
-        return apiCall(SENTIMENT, document, access_token, model);
+    public static List<Prediction> sentiment(String document, String model) {
+        return apiCall(SENTIMENT, document, model);
     }
 
-    public static List<Prediction> intent(String document, String access_token, String model) {
-        return apiCall(INTENT, document, access_token, model);
+    public static List<Prediction> intent(String document, String model) {
+        return apiCall(INTENT, document, model);
     }
     
-    private static List<Prediction> apiCall(String endpoint, String document, String access_token, String model) {
+    private static List<Prediction> apiCall(String endpoint, String document,  String model) {
         string contentType = GetContentType();
-
+        String access_token = getAccessToken();
+        
         //  Compose the form
         string form64 = '';
         form64 += WriteBoundary();
