@@ -1,0 +1,19 @@
+<apex:page Controller="EinsteinExampleCtrl">
+  <apex:form >
+      <apex:pageBlock >
+          <img src="http://metamind.io/images/generalimage.jpg"/>
+          <br/>
+          <apex:repeat value="{!callVisionUrl}" var="prediction">
+              <apex:outputText value="{!prediction.label}" />:<apex:outputText value="{!prediction.probability}" /><br/>
+          </apex:repeat>
+          
+          <br/>
+          <hr/>
+          <br/>
+          
+          Sentiment for : "I love salesforce"
+          <br/>
+          {!CallSentiment}
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>
