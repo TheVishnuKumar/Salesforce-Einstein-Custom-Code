@@ -10,7 +10,7 @@ You can see these files here: (Original Resource)
 How to use the EinsteinMaster:
 
 1. Predict from Image URL:
-      EinsteinMaster.predictUrl('<IMAGE URL>', '<MODEL ID>');
+      EinsteinMaster.predictUrl('{IMAGE URL}', '<MODEL ID>');
       
 2. Predict from Blob Data:
       EinsteinMaster.predictBlob(<BLOB DATA>, '<MODEL ID>');
