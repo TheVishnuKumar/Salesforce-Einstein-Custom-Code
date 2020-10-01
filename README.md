@@ -4,6 +4,7 @@ This repository contains combined and modified code of multiple files for Salesf
 You can see these files here: (Original Resource) 
 1. https://github.com/salesforceidentity/jwt 
 2. https://github.com/MetaMind/apex-utils
+3. https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components/create-a-hello-world-lightning-web-component
 
 
 ************************************************************************************************
